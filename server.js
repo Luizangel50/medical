@@ -11,15 +11,10 @@ var usersRouter = require('./routes/users');
 var app = express();
 const port = process.env.PORT || 5000
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'client/public')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -52,6 +47,6 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-module.exports = app;
+//module.exports = app;
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
