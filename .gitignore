@@ -87,8 +87,6 @@ typings/
 
 package-lock.json
 
-yarn.lock
-
 # dependencies
 /.pnp
 .pnp.js
