@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
+var path = require('path');
 
 router.get('/api/hello', (req, res) => {
-  res.send({ express: 'Hello From Express' });
+  res.send({ express: `Hello From Express, ${path.join(__dirname)}` });
 });
 
 router.post('/api/world', (req, res) => {
