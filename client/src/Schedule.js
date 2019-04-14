@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, Text, StyleSheet } from 'react-native';
+import { Text } from 'react-native';
 import './App.css';
 import Button from '@material-ui/core/Button';
 
