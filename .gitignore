@@ -36,7 +36,6 @@ bower_components
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
-/build
 
 # Dependency directories
 node_modules/
@@ -84,8 +83,6 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
-
-package-lock.json
 
 # dependencies
 /.pnp
