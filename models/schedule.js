@@ -1,12 +1,16 @@
-//for mongodb version 3.0 and up
-let MongoClient = require('mongodb').MongoClient;
-MongoClient.connect('mongodb://localhost:27017/animals', function(err, client){
-   if(err) throw err;
-   
-   let db = client.db('animals');
-   db.collection('mammals').find().toArray(function(err, result){
-     if(err) throw err;
-     console.log(result);
-     client.close();
-   });
-});
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
+// this will be our data base's data structure 
+const ScheduleSchema = new Schema(
+  {
+    id: Number,
+    name: String,
+    telephone: Number,
+    email: String,
+    begin_date: Date,
+    end_date: Date
+  }
+);
+
+module.exports = mongoose.model("Schedule", ScheduleSchema);
