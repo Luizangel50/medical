@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './heartbeat.svg';
 import './App.css';
+//import indexPage from './remedic/index.html';
 
 class App extends Component {
   state = {
     response: '',
     post: '',
     responseToPost: '',
+    name: '',
+    telephone: '',
+    email: '',
+    date: '',
+    time: ''
   };
 
   componentDidMount() {
@@ -29,7 +35,14 @@ class App extends Component {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ post: this.state.post }),
+      body: JSON.stringify({ 
+        post: this.state.post,
+        name : this.state.name,
+        telephone : this.state.telephone,
+        email : this.state.email,
+        date : this.state.date,
+        time : this.state.time
+     }),
     });
     const body = await response.text();
     this.setState({ responseToPost: body });
@@ -40,29 +53,89 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <header className="App-medical-header">
+            MEDICAL
+          </header>
         </header>
-        <p>{this.state.response}</p>
+        {/* <p>{this.state.response}</p> */}
+        <p>
+          <strong>Insira seus dados para agendar uma consulta:</strong>
+        </p>
         <form onSubmit={this.handleSubmit}>
-          <p>
-            <strong>Post to Server:</strong>
-          </p>
-          <input
-            type="text"
-            value={this.state.post}
-            onChange={e => this.setState({ post: e.target.value })}
-          />
-          <button type="submit">Submit</button>
+          <div className="App-div-inline">
+            <div className="App-div">
+              <label className="App-label">
+                Nome
+              </label>
+            </div>
+            <div className="App-div">
+              <label className="App-label">
+                Telefone
+              </label>
+            </div>
+            <div className="App-div">
+              <label className="App-label">
+                Email
+              </label>
+            </div>
+            <div className="App-div">
+              <label className="App-label">
+                Data
+              </label>
+            </div>
+            <div className="App-div">
+              <label className="App-label">
+                Horário
+              </label>
+            </div>
+          </div>
+          <div className="App-div-inline">
+            <div className="App-div">
+              <input
+                className = "App-input"
+                type="text"
+                pattern="[a-zA-Z]+"
+                value={this.state.name}
+                onChange={e => this.setState({ name: e.target.value })}
+              />
+            </div>
+            <div className="App-div">
+              <input 
+                className = "App-input"
+                type="number"
+                pattern="[0-9]+"
+                value={this.state.telephone}
+                onChange={e => this.setState({ telephone: e.target.value })}
+              />
+            </div>
+            <div className="App-div">
+              <input
+                className = "App-input"
+                type="text"
+                value={this.state.email}
+                onChange={e => this.setState({ email: e.target.value })}
+              />
+            </div>
+            <div className="App-div">
+              <input
+                className = "App-input"
+                type="date"
+                value={this.state.date}
+                onChange={e => this.setState({ date: e.target.value })}
+              />
+            </div>
+            <div className="App-div">
+              <input
+                className = "App-input"
+                type="time"
+                value={this.state.time}
+                onChange={e => this.setState({ time: e.target.value })}
+              />
+            </div>
+          </div>
+          <div className="App-div">
+            <button className="App-submit-button" type="submit">Agendar</button>
+          </div>
         </form>
         <p>{this.state.responseToPost}</p>
       </div>
