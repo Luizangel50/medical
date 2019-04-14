@@ -22,11 +22,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
@@ -47,6 +42,6 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-//module.exports = app;
+module.exports = app;
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
