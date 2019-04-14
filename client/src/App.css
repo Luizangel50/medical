@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  overflow: scroll;
 }
 
 .App-admin-button {
@@ -20,7 +19,6 @@
   text-align: end;
   right: 0;
   justify-content: flex-end;
-  overflow: scroll;
 }
 
 .App-header {
